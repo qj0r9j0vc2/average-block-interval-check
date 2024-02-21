@@ -10,18 +10,6 @@ import (
 	"time"
 )
 
-package main
-
-import (
-"encoding/json"
-"fmt"
-"io/ioutil"
-"net/http"
-"os"
-"strconv"
-"time"
-)
-
 func main() {
 	if len(os.Args) < 3 {
 		fmt.Println("Usage: go run main.go [height] [iterations]")
@@ -38,7 +26,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	var totalDiff uint64
+	var totalDiff int64
 
 	for i := 0; i < iterations; i++ {
 		blockTime, err := getBlockTime(height)
@@ -65,7 +53,7 @@ func main() {
 	fmt.Printf("Average time difference: %.4f seconds\n", average)
 }
 
-func getBlockTime(height int) (uint64, error) {
+func getBlockTime(height int) (int64, error) {
 	url := fmt.Sprintf("http://localhost:26657/block?height=%d", height)
 
 	resp, err := http.Get(url)
