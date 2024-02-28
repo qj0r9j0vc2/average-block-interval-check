@@ -48,7 +48,6 @@ func main() {
 		height--
 	}
 
-	// 밀리초 단위로 변환하여 평균 값을 계산합니다.
 	average := float64(totalDiff) / float64(iterations) / 1000.0
 
 	fmt.Printf("Average time difference: %.4f seconds\n", average)
@@ -79,11 +78,7 @@ func getBlockTime(height int) (int64, error) {
 	if err != nil {
 		return 0, err
 	}
-<<<<<<< HEAD
-	// 밀리초 단위로 변환하여 반환합니다.
-=======
 
->>>>>>> 39ac5981711721f4a8e2dc69cc67f7c6b44b32f1
 	return blockTime.UnixNano() / int64(time.Millisecond), nil
 }
 
